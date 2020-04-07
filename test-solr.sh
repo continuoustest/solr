@@ -1,6 +1,8 @@
 #! /bin/bash
 
-solr_ping=$(curl -s -o /dev/null -I -w "%{http_code}"  -X GET http://solr:8983/solr/${CPHP_SOLR_CORE_NAME}/admin/ping)
+echo "core name : $CPHP_SOLR_CORE_NAME "
+
+solr_ping=$(curl -s -o /dev/null -I -w "%{http_code}"  -X GET http://solr:8983/solr/$CPHP_SOLR_CORE_NAME/admin/ping)
 
 if [ $solr_ping -eq 200 ];
 then
